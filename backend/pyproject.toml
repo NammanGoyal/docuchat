@@ -1,0 +1,23 @@
+[project]
+name = "docuchat"
+version = "1.0.0"
+description = "Retrieval-augmented question answering over your own documents"
+requires-python = ">=3.13"
+license = "MIT"
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    # Starlette's TestClient nudges towards the `httpx2` package; harmless here.
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]
+
+[tool.coverage.run]
+source = ["app"]
